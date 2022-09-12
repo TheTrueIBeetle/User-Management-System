@@ -1,0 +1,31 @@
+import logo from './logo.svg';
+import './App.css';
+import ListUserComponent from "./components/ListUserComponent";
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
+import CreateUserComponent from "./components/CreateUserComponent";
+import UpdateUserComponent from "./components/UpdateUserComponent";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import ViewUserComponent from "./components/ViewUserComponent";
+
+function App() {
+  return (
+      <div>
+          <Router>
+              <HeaderComponent />
+              <div className="container">
+                  <Switch> localhost:3000/update-user/
+                      <Route path="/" exact component={ListUserComponent}></Route>
+                      <Route path="/users" component={ListUserComponent}></Route>
+                      <Route path="/add-user" component={CreateUserComponent}></Route>
+                      <Route path="/update-user/:id" component={UpdateUserComponent}></Route>
+                      <Route path="/view-user/:id" component={ViewUserComponent}></Route>
+                  </Switch>
+              </div>
+              <FooterComponent />
+          </Router>
+      </div>
+  );
+}
+
+export default App;
